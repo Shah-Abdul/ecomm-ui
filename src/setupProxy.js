@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use(
     "/auth-api",
     createProxyMiddleware({
-      target:  `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api`,
+      target:  `${process.env.REACT_APP_AUTH_API_URL || 'http://localhost:5000'}/api`,
       changeOrigin: true,
       secure: false,
     })

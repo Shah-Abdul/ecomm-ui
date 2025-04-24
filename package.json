@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:docker": "eval $(minikube docker-env) && docker build -t ecomm-ui-service . && minikube image push ecomm-ui-service"
   },
   "eslintConfig": {
     "extends": [
