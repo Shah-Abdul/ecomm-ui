@@ -1,0 +1,238 @@
+/* RegistrationPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.registration-card {
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.registration-header {
+  background-color: #4a00e0;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.registration-header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.registration-header p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.registration-form {
+  padding: 30px 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4a00e0;
+}
+
+.input-error {
+  border-color: #ff3860 !important;
+}
+
+.error-message {
+  color: #ff3860;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success-message {
+  background-color: #23d160;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 20px 20px 0;
+  text-align: center;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.password-toggle:hover {
+  color: #4a00e0;
+}
+
+.checkbox-group {
+  margin-top: 25px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  accent-color: #4a00e0;
+}
+
+.checkbox-container label {
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.checkbox-container a {
+  color: #4a00e0;
+  text-decoration: none;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+.registration-button {
+  width: 100%;
+  background-color: #4a00e0;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.registration-button:hover {
+  background-color: #3700b3;
+}
+
+.login-prompt {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+}
+
+.login-prompt a {
+  color: #4a00e0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Password strength indicator styles */
+.password-strength {
+  height: 5px;
+  margin-top: 8px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.strength-weak {
+  width: 30%;
+  background-color: #ff3860;
+}
+
+.strength-medium {
+  width: 70%;
+  background-color: #ffdd57;
+}
+
+.strength-strong {
+  width: 100%;
+  background-color: #23d160;
+}
+
+/* Optional: Password requirements list */
+.password-requirements {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.password-requirements ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 540px) {
+  .registration-card {
+    border-radius: 0;
+  }
+  
+  .registration-form {
+    padding: 25px 15px;
+  }
+  
+  .checkbox-container label {
+    font-size: 12px;
+  }
+}

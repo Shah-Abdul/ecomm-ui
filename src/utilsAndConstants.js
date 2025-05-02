@@ -1,0 +1,1 @@
+export const ECOMM_APP_NAME = "Group 34 eComm App"
