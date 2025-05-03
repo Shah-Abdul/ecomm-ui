@@ -1,0 +1,92 @@
+/* AddProductForm.css */
+.add-product-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.add-product-form h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+.submit-btn:active {
+  background-color: #1c6f98;
+}
+
+@media (max-width: 600px) {
+  .add-product-form {
+    padding: 15px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+  }
+}

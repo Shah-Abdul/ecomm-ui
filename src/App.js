@@ -8,10 +8,10 @@ import { AuthProvider } from './context/AuthContext';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
-import HomePage from './components/HomePage';
 import Profile from './components/ProfilePage';
 import Unauthorized from './components/Unauthorized';
 import NotFound from './components/NotFound';
+import ProductsPage from './components/Product/Pages/ProductsPage';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
       <Router>
         <Routes>
           {/* Public routes */}
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<ProductsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
@@ -34,7 +34,7 @@ const App = () => {
           {/* Admin-only routes */}
           <Route element={<ProtectedRoute requireAdmin={true} />}>
             <Route path="/admin/users" element={<UserManagement />} />
-            <Route path="/admin/products" element={<ProductManagement />} />
+            <Route path="/admin/products" element={<ProductManagement />} />      
           </Route>
           
           {/* 404 route */}
