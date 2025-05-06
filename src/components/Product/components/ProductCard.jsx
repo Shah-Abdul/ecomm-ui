@@ -44,7 +44,7 @@ const ProductCard = ({ product, onDelete, role, onAddToCart, onRemoveFromCart })
     <div className="product-card">
       <div className="product-image-container">
         <img
-          src={product.image ? `${API}/${product.image}` : '/default-image.jpg'}
+          src={product.image ? `/product-api//${product.image}` : '/default-image.jpg'}
           alt={product.name}
           className="product-image"
         />

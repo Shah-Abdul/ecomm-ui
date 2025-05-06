@@ -10,4 +10,16 @@ module.exports = function (app) {
       secure: false,
     })
   );
+
+  app.use(
+    "/product-api",
+    createProxyMiddleware({
+      target:  `${process.env.REACT_APP_API_URL || 'http://localhost:5001'}`,
+      changeOrigin: true,
+      secure: false,
+    })
+  );
+
 };
+
+
