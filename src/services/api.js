@@ -1,6 +1,8 @@
 // src/services/api.js
 import axios from 'axios';
 
+const productApi = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+
 const api = axios.create({
   withCredentials: true,
   headers: {
@@ -46,7 +48,7 @@ api.interceptors.response.use(
 );
 
 export async function fetchProducts(category = '', page = 1, search = '', limit = 10) {
-  let url = `${API}/api/products?page=${page}&limit=${limit}`;
+  let url = `${productApi}/api/products?page=${page}&limit=${limit}`;
 
   if (category) url += `&category=${category}`;
   if (search) url += `&search=${search}`;
@@ -60,7 +62,7 @@ export async function fetchProducts(category = '', page = 1, search = '', limit 
 
 // Add product with authentication via cookies
 export async function addProduct(product) {
-  const res = await fetch(`${API}/api/products`, {
+  const res = await fetch(`${productApi}/api/products`, {
     method: 'POST',
     credentials: 'include', // Include cookies with the request
     body: product, // FormData — correct
@@ -71,7 +73,7 @@ export async function addProduct(product) {
 
 // Delete product with authentication via cookies
 export async function deleteProduct(productId) {
-  const res = await fetch(`${API}/api/products/${productId}`, {
+  const res = await fetch(`${productApi}/api/products/${productId}`, {
     method: 'DELETE',
     credentials: 'include', // Include cookies with the request
   });
