@@ -1,7 +1,6 @@
 // src/services/api.js
 import axios from 'axios';
 
-const productApi = process.env.REACT_APP_API_URL || 'http://localhost:5001';
 
 const api = axios.create({
   withCredentials: true,

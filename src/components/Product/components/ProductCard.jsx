@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../ProductStyle/ProductCard.css';
 import { useAuth } from '../../../context/AuthContext';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:5001';
 
 const ProductCard = ({ product, onDelete, role, onAddToCart, onRemoveFromCart }) => {
   const [showCartControls, setShowCartControls] = useState(false);
