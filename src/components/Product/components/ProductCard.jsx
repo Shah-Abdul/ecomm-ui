@@ -1,57 +1,53 @@
 import React, { useState } from 'react';
 import '../ProductStyle/ProductCard.css';
 import { useAuth } from '../../../context/AuthContext';
+import { useCart } from '../../../context/CartContext';
 
-
-const ProductCard = ({ product, onDelete, role, onAddToCart, onRemoveFromCart }) => {
+const ProductCard = ({ product, onDelete, role }) => {
   const [showCartControls, setShowCartControls] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const { currentUser } = useAuth();
-  console.log('Card'+JSON.stringify(currentUser));
+  const { addToCart, removeFromCart } = useCart();
 
   const handleCartClick = () => {
     setShowCartControls(true);
     setQuantity(1);
-    onAddToCart(product, 1); // Add first unit to cart
+    addToCart(product, 1);
   };
 
   const increment = () => {
     if (quantity < product.stock) {
-      const newQty = quantity + 1;
-      setQuantity(newQty);
-      onAddToCart(product, newQty);
+      setQuantity(prev => prev + 1);
+      addToCart(product, 1);
     }
   };
 
   const decrement = () => {
     if (quantity > 1) {
-      const newQty = quantity - 1;
-      setQuantity(newQty);
-      onAddToCart(product, newQty);
+      setQuantity(prev => prev - 1);
+      addToCart(product, -1);
     } else {
-      handleRemoveFromCart(); // If quantity becomes 0
+      handleRemoveFromCart();
     }
   };
 
   const handleRemoveFromCart = () => {
     setShowCartControls(false);
     setQuantity(0);
-    onRemoveFromCart(product);
+    removeFromCart(product);
   };
 
   return (
     <div className="product-card">
       <div className="product-image-container">
         <img
-          src={product.image ? `/product-api//${product.image}` : '/default-image.jpg'}
+          src={product.image ? `/product-api/${product.image}` : '/default-image.jpg'}
           alt={product.name}
           className="product-image"
         />
 
         {!showCartControls && (
-          <button className="cart-icon-btn" onClick={handleCartClick}>
-            🛒
-          </button>
+          <button className="cart-icon-btn" onClick={handleCartClick}>🛒</button>
         )}
 
         {showCartControls && (
@@ -77,10 +73,10 @@ const ProductCard = ({ product, onDelete, role, onAddToCart, onRemoveFromCart })
         <p className="product-stock">In Stock: {product.stock}</p>
 
         {currentUser?.role === 'admin' && (
-  <button onClick={() => onDelete(product._id)} className="delete-button">
-    Delete
-  </button>
-)}
+          <button onClick={() => onDelete(product._id)} className="delete-button">
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );

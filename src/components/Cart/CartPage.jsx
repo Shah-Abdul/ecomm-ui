@@ -1,14 +1,14 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
-import { useNavigate } from 'react-router-dom'; // <-- ✅ import this!
+import { useNavigate } from 'react-router-dom';
 import './CartPage.css';
 
 const CartPage = () => {
   const { cartItems } = useCart();
-  const navigate = useNavigate(); // <-- ✅ use this!
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate('/checkout'); // 🚀 take the user to the checkout page
+    navigate('/checkout');
   };
 
   return (
@@ -23,6 +23,7 @@ const CartPage = () => {
               <div>{item.name}</div>
               <div>Qty: {item.quantity}</div>
               <div>₹{item.price}</div>
+              <div>Total: ₹{item.price * item.quantity}</div>
             </li>
           ))}
         </ul>
