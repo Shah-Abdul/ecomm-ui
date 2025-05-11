@@ -20,6 +20,15 @@ module.exports = function (app) {
     })
   );
 
+  app.use(
+    "/cart-api",
+    createProxyMiddleware({
+      target:  `${process.env.REACT_CART_API_URL || 'http://localhost:5002'}`,
+      changeOrigin: true,
+      secure: false,
+    })
+  );
+
 };
 
 

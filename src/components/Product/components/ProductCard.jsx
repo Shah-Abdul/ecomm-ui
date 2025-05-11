@@ -7,7 +7,7 @@ const ProductCard = ({ product, onDelete, role }) => {
   const [showCartControls, setShowCartControls] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const { currentUser } = useAuth();
-  const { addToCart, removeFromCart } = useCart();
+  const { addToCart } = useCart();
 
   const handleCartClick = () => {
     setShowCartControls(true);
@@ -26,16 +26,10 @@ const ProductCard = ({ product, onDelete, role }) => {
     if (quantity > 1) {
       setQuantity(prev => prev - 1);
       addToCart(product, -1);
-    } else {
-      handleRemoveFromCart();
-    }
+    } 
   };
 
-  const handleRemoveFromCart = () => {
-    setShowCartControls(false);
-    setQuantity(0);
-    removeFromCart(product);
-  };
+  
 
   return (
     <div className="product-card">
@@ -55,13 +49,7 @@ const ProductCard = ({ product, onDelete, role }) => {
             <button className="icon-btn" onClick={decrement}>➖</button>
             <span className="quantity-display">{quantity}</span>
             <button className="icon-btn" onClick={increment}>➕</button>
-            <button
-              className="icon-btn remove-cart"
-              onClick={handleRemoveFromCart}
-              title="Remove from cart"
-            >
-              🗑️
-            </button>
+            
           </div>
         )}
       </div>

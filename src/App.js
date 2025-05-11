@@ -15,6 +15,7 @@ import ProductsPage from './components/Product/Pages/ProductsPage';
 import CartPage from './components/Cart/CartPage';
 import CheckoutPage from './components/Checkout/CheckoutPage';
 import Orderpage from './components/Orders/Orderpage';
+import { CartProvider } from './context/CartContext'; 
 
 // Stub components (TODO: replace with real ones later)
 const UserManagement = () => <div>User Management</div>;
@@ -23,6 +24,7 @@ const ProductManagement = () => <div>Product Management</div>;
 const App = () => {
   return (
     <AuthProvider>
+      <CartProvider>
       <Router>
         <Routes>
           {/* Public routes */}
@@ -49,6 +51,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      </CartProvider>
     </AuthProvider>
   );
 };
